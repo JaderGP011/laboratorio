@@ -1,0 +1,5 @@
+function acao() {
+    if (condition) {
+        
+    }
+}
