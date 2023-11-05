@@ -63,3 +63,31 @@ function loadQuestion() {
 }
 
 loadQuestion();
+
+// Importe o array de perguntas e respostas
+import quizData from './quizData'; // Substitua o caminho pelo local do seu arquivo de dados
+
+// Função para embaralhar o array
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// Embaralhe as perguntas
+const shuffledQuizData = shuffleArray(quizData);
+
+// Função para apresentar as perguntas aos usuários
+function presentQuestions(questions) {
+  questions.forEach((question, index) => {
+    console.log(`Pergunta ${index + 1}: ${question.question}`);
+    question.answers.forEach((answer, ansIndex) => {
+      console.log(`${ansIndex + 1}. ${answer.option}`);
+    });
+  });
+}
+
+// Apresente as perguntas embaralhadas
+presentQuestions(shuffledQuizData);
